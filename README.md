@@ -13,6 +13,31 @@ This project is a Spring Boot application designed to manage categories and prod
 
 ---
 
+## DB Design
+
+### Tables
+
+#### 1. **Category Table**
+   - **Table Name**: `categories`
+   - **Columns**:
+     | Column Name    | Data Type    | Constraints                     |
+     |----------------|--------------|----------------------------------|
+     | `id`           | BIGINT       | PRIMARY KEY, AUTO_INCREMENT     |
+     | `name`         | VARCHAR(255) | NOT NULL                        |
+     | `description`  | TEXT         | NULLABLE                        |
+
+#### 2. **Product Table**
+   - **Table Name**: `products`
+   - **Columns**:
+     | Column Name    | Data Type     | Constraints                     |
+     |----------------|---------------|----------------------------------|
+     | `id`           | BIGINT        | PRIMARY KEY, AUTO_INCREMENT     |
+     | `name`         | VARCHAR(255)  | NOT NULL                        |
+     | `price`        | DECIMAL(10,2) | NOT NULL                        |
+     | `category_id`  | BIGINT        | FOREIGN KEY REFERENCES `categories(id)` |
+
+---
+
 ## APIs
 
 ### Category APIs
@@ -81,7 +106,7 @@ This project is a Spring Boot application designed to manage categories and prod
 
 ---
 
-## How to Run the Code
+## Let's Run the Project
 
 ### Prerequisites
 1. Install **Java 17** or later.
